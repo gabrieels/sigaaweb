@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
-<title>Start Page</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
+
 <body>
-	<h1>Hello World!</h1>
-	<form method="post" action="loginServlet">
-		Login Id: <input type="text" name="nome" /> <input type="submit"
-			value="Login" />
-	</form>
+ 	<div class="login">
+ 	<h1>Login</h1>
+    	<form method="post" action="loginServlet">
+    		<input type="text" name="usermatricula" placeholder="Matrícula" required="required" />
+        	<button type="submit" class="btn btn-primary btn-block btn-large">Entrar</button>
+    	</form>
+	</div>
+
 </body>
 </html>
