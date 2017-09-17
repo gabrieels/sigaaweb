@@ -9,6 +9,9 @@ public class AlunoBean extends BaseBean {
 	private String codTurma;
 	private String codCurso;
 	
+	public AlunoBean() {
+	}
+	
 	/**
 	 * @param codMatricula
 	 * @param nomeAluno
@@ -67,6 +70,6 @@ public class AlunoBean extends BaseBean {
 	@Override
 	public String toString() {
 		return "AlunoBean [codMatricula=" + codMatricula + ", nomeAluno=" + nomeAluno + ", codDisciplina="
-				+ codDisciplina + ", codTurma=" + codTurma + ", codCurso=" + codCurso + "]";
+				+ codDisciplina + ", codTurma=" + codTurma + ", codCurso=" + codCurso + "]\n";
 	}
 }
