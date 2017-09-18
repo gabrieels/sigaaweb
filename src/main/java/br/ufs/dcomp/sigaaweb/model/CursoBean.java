@@ -7,6 +7,10 @@ public class CursoBean extends BaseBean {
 	private int codCurso;
 	private String nomeCurso;
 	
+	public CursoBean() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * @param codCurso
 	 * @param nomeCurso
