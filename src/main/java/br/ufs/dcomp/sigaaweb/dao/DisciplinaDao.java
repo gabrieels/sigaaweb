@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufs.dcomp.sigaaweb.model.DisciplinaBean;
-import br.ufs.dcomp.sigaaweb.model.TurmaBean;
 import br.ufs.dcomp.sigaaweb.util.GenericDao;
 
 public class DisciplinaDao extends GenericDao {
