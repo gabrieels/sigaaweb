@@ -8,6 +8,10 @@ public class DisciplinaBean extends BaseBean {
 	private String nomeDisciplina;
 	private String nuCreditos;
 	
+	public DisciplinaBean() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * @param codDisciplina
 	 * @param nomeDisciplina
@@ -46,6 +50,6 @@ public class DisciplinaBean extends BaseBean {
 	@Override
 	public String toString() {
 		return "DisciplinaBean [codDisciplina=" + codDisciplina + ", nomeDisciplina=" + nomeDisciplina + ", nuCreditos="
-				+ nuCreditos + "]";
+				+ nuCreditos + "]\n";
 	}
 }
