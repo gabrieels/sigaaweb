@@ -1,6 +1,5 @@
 package br.ufs.dcomp.sigaaweb.dao;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,27 +7,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufs.dcomp.sigaaweb.model.AlunoBean;
-import br.ufs.dcomp.sigaaweb.util.ConnectionFactory;
+import br.ufs.dcomp.sigaaweb.util.GenericDao;
 
-public class AlunoDao {
-	private Connection connection;
+public class AlunoDao extends GenericDao {
 	private AlunoBean alunoBean = null;
 	List<AlunoBean> alunoBeans = new ArrayList<>();
 	
 	public AlunoDao() {
-		this.connection = ConnectionFactory.getConnection();
+		super();
 	}
 
 	public AlunoBean findByMatricula(long matricula) {
 		
 		try {
-			Statement stmt = connection.createStatement();
-			ResultSet resultSet = stmt.executeQuery("SELECT * FROM alunos WHERE cod_matricula=" + matricula);
+			Statement statement = this.getConnection().createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM alunos WHERE cod_matricula=" + matricula);
 
 			if (resultSet.next()) {
 				this.alunoBean = extractAlunoBeanFromResultSet(resultSet);
 			}
-
+			
+			statement.close();
+			this.closeConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -37,13 +37,16 @@ public class AlunoDao {
 	
 	public List<AlunoBean> findAll() {
 		try {
-			Statement stmt = connection.createStatement();
-			ResultSet resultSet = stmt.executeQuery("SELECT * FROM alunos");
+			Statement statement = this.getConnection().createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM alunos");
 
 			while (resultSet.next()) {
 				this.alunoBean = extractAlunoBeanFromResultSet(resultSet);
 				this.alunoBeans.add(alunoBean);
 			}
+			
+			statement.close();
+			this.closeConnection();
 
 		} catch (SQLException e) {
 			e.printStackTrace();

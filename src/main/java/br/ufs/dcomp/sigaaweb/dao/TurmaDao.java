@@ -26,8 +26,11 @@ public class TurmaDao extends GenericDao {
 			if (resultSet.next()) {
 				this.turmaBean = extractTurmaBeanFromResultSet(resultSet);
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
+			
+			statement.close();
+			this.closeConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
 		return this.turmaBean;
