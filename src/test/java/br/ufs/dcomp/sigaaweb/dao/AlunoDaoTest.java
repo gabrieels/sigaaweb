@@ -16,15 +16,12 @@ public class AlunoDaoTest {
 	@Test
 	public final void testFindByMatricula() {
 		alunoBean = alunoDao.findByMatricula(201010012864L);
-		System.out.println(alunoBean.toString());
-
 		assertNotNull(alunoBean);
 	}
 
 	@Test
 	public final void testFindAll() {
 		alunoBeans = alunoDao.findAll();
-		System.out.println(alunoBeans.toString());
 		assertNotNull(alunoBeans);
 	}
 }

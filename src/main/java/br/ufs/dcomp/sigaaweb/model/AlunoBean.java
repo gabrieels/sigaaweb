@@ -1,8 +1,10 @@
 package br.ufs.dcomp.sigaaweb.model;
 
-import br.ufs.dcomp.sigaaweb.tool.BaseBean;
+import br.ufs.dcomp.sigaaweb.util.BaseBean;
 
 public class AlunoBean extends BaseBean {
+
+	private static final long serialVersionUID = 1L;
 	private long codMatricula;
 	private String nomeAluno;
 	private String codDisciplina;

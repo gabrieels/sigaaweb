@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufs.dcomp.sigaaweb.model.AlunoBean;
-import br.ufs.dcomp.sigaaweb.tool.ConnectionFactory;
+import br.ufs.dcomp.sigaaweb.util.ConnectionFactory;
 
 public class AlunoDao {
 	private Connection connection;
@@ -45,7 +45,7 @@ public class AlunoDao {
 				this.alunoBeans.add(alunoBean);
 			}
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return this.alunoBeans;

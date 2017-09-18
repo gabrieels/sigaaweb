@@ -1,8 +1,9 @@
 package br.ufs.dcomp.sigaaweb.model;
 
-import br.ufs.dcomp.sigaaweb.tool.BaseBean;
+import br.ufs.dcomp.sigaaweb.util.BaseBean;
 
 public class DisciplinaBean extends BaseBean {
+	private static final long serialVersionUID = 1L;
 	private String codDisciplina;
 	private String nomeDisciplina;
 	private String nuCreditos;

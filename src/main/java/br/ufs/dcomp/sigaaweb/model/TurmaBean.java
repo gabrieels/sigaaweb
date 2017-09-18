@@ -1,9 +1,10 @@
 package br.ufs.dcomp.sigaaweb.model;
 
-import br.ufs.dcomp.sigaaweb.tool.BaseBean;
+import br.ufs.dcomp.sigaaweb.util.BaseBean;
 
 public class TurmaBean extends BaseBean {
-	
+
+	private static final long serialVersionUID = 1L;
 	private String codDisciplina;
 	private String codTurma;
 	private String turnoManha;
@@ -23,6 +24,10 @@ public class TurmaBean extends BaseBean {
 		this.turnoManha = turnoManha;
 		this.turnoTarde = turnoTarde;
 		this.turnoNoite = turnoNoite;
+	}
+
+	public TurmaBean() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getCodDisciplina() {
@@ -68,6 +73,6 @@ public class TurmaBean extends BaseBean {
 	@Override
 	public String toString() {
 		return "TurmaBean [codDisciplina=" + codDisciplina + ", codTurma=" + codTurma + ", turnoManha=" + turnoManha
-				+ ", turnoTarde=" + turnoTarde + ", turnoNoite=" + turnoNoite + "]";
+				+ ", turnoTarde=" + turnoTarde + ", turnoNoite=" + turnoNoite + "]\n";
 	}
 }

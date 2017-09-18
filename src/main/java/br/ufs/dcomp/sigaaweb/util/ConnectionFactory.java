@@ -1,4 +1,4 @@
-package br.ufs.dcomp.sigaaweb.tool;
+package br.ufs.dcomp.sigaaweb.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

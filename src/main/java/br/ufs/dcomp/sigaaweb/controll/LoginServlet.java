@@ -11,25 +11,36 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.ufs.dcomp.sigaaweb.dao.AlunoDao;
 import br.ufs.dcomp.sigaaweb.model.AlunoBean;
+import br.ufs.dcomp.sigaaweb.service.AlunoService;
 
-@WebServlet("/loginServlet")
+@WebServlet(name = "LoginServlet", urlPatterns = { "/loginServlet" })
 public class LoginServlet extends HttpServlet {
-	AlunoDao alunoDao = new AlunoDao();
-
 	private static final long serialVersionUID = 1L;
+	long matricula = 0;
+	AlunoDao alunoDao = new AlunoDao();
+	AlunoService alunoService;
+	AlunoBean alunoBean;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		AlunoBean alunoBean = new AlunoBean();
-		
-		long matricula = Long.parseLong(req.getParameter("usermatricula"));
-		
-		alunoBean = alunoDao.findByMatricula(matricula);
+		try {
+			PrintWriter out = resp.getWriter();
+			alunoBean = new AlunoBean();
 
-		resp.setContentType("text/html");
+			matricula = Long.parseLong(req.getParameter("usermatricula"));
 
-		PrintWriter out = resp.getWriter();
-		out.println("Ola: " + alunoBean.getNomeAluno());
+			alunoBean = alunoDao.findByMatricula(matricula);
+
+			if (alunoBean != null) {
+				resp.setContentType("text/html");
+				out.println("Ola " + alunoBean.getNomeAluno());
+			} else {
+				resp.setContentType("text/html");
+				out.println("Error: Matricula inválida");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 

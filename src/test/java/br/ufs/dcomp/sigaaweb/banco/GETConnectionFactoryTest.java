@@ -6,7 +6,7 @@ import java.sql.Connection;
 
 import org.junit.Test;
 
-import br.ufs.dcomp.sigaaweb.tool.ConnectionFactory;
+import br.ufs.dcomp.sigaaweb.util.ConnectionFactory;
 
 public class GETConnectionFactoryTest {
 	Connection conn;
