@@ -1,6 +1,8 @@
-package br.ufs.dcomp.sigaaweb.tool;
+package br.ufs.dcomp.sigaaweb.util;
 
-public class BaseBean {
-	@SuppressWarnings("unused")
+import java.io.Serializable;
+
+public class BaseBean implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 }
