@@ -20,16 +20,19 @@ public class LoginServlet extends HttpServlet {
 	AlunoDao alunoDao = new AlunoDao();
 	AlunoService alunoService;
 	AlunoBean alunoBean;
+	PrintWriter out;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			PrintWriter out = resp.getWriter();
+			out = resp.getWriter();
 			alunoBean = new AlunoBean();
 
 			matricula = Long.parseLong(req.getParameter("usermatricula"));
-
-			alunoBean = alunoDao.findByMatricula(matricula);
+			
+			alunoService = new AlunoService();
+			
+			alunoBean = alunoService.autenticar(matricula);
 
 			if (alunoBean != null) {
 				resp.setContentType("text/html");
@@ -39,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 				out.println("Error: Matricula inválida");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			out.println("Error: Matricula inválida");
 		}
 
 	}

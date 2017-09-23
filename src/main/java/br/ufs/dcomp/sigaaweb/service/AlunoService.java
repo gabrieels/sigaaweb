@@ -7,14 +7,9 @@ public class AlunoService {
 	AlunoDao alunoDao = new AlunoDao();
 	AlunoBean alunoBean;
 
-	public AlunoBean buscaAluno(long matricula) {
-		if (matricula != 0) {
-			alunoBean = alunoDao.findByMatricula(matricula);
-			if (alunoBean != null) {
-				return alunoBean;
-			} 
-		} 
+	public AlunoBean autenticar(long matricula) {
+		alunoBean = alunoDao.findByMatricula(matricula);
 		
-		return null;
+		return alunoBean;
 	}
 }
