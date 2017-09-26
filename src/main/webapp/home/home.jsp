@@ -11,6 +11,5 @@
 	<%AlunoBean alunoBean = (AlunoBean) session.getAttribute("alunoLogado"); %>
 	<h1>Olá</h1> <%alunoBean.getNomeAluno();%> !
 	
-	Web Application Context Path = ${pageContext.request.contextPath}
 </body>
 </html>

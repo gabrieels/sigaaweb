@@ -30,7 +30,9 @@ public class AlunoDao extends GenericDao {
 			statement.close();
 			this.closeConnection();
 		} catch (Exception e) {
+			this.closeConnection();
 			e.printStackTrace();
+			
 		}
 		return this.alunoBean;
 	}
@@ -49,6 +51,7 @@ public class AlunoDao extends GenericDao {
 			this.closeConnection();
 
 		} catch (SQLException e) {
+			this.closeConnection();
 			e.printStackTrace();
 		}
 		return this.alunoBeans;

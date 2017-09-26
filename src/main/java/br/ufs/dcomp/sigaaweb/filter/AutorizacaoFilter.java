@@ -38,11 +38,11 @@ public class AutorizacaoFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
 		
-		AlunoBean alunoBean = (AlunoBean) session.getAttribute("alunoAlugado");
+		AlunoBean alunoBean = (AlunoBean) session.getAttribute("alunoLogado");
 		if (alunoBean == null) {
 			session.invalidate();
 			//req.getRequestDispatcher("/").forward(request, response);
-			res.sendRedirect(URL_ROOT + "/login");
+			res.sendRedirect(URL_ROOT);
 		} else {
 			chain.doFilter(request, response);
 		}
