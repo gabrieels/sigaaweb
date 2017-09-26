@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ufs.dcomp.sigaaweb.model.AlunoBean;
+
 /**
  * Servlet implementation class HomeServlet
  */
@@ -16,8 +18,9 @@ public class HomeServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		req.getRequestDispatcher("/home/home.jsp").forward(req, resp);
+		//AlunoBean alunoBean = (AlunoBean) req.getSession().getAttribute("alunoLogado");
+	
+		resp.sendRedirect("home/home.jsp");
 	}
 
 	@Override
