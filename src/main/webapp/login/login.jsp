@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Login</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="login/css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<div class="login">

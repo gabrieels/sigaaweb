@@ -14,15 +14,16 @@ import javax.servlet.http.HttpSession;
 import br.ufs.dcomp.sigaaweb.model.AlunoBean;
 import br.ufs.dcomp.sigaaweb.service.AlunoService;
 
-@WebServlet(name = "loginServlet", urlPatterns = { "/" })
+@WebServlet(name = "loginServlet", urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	AlunoService alunoService;
 	AlunoBean alunoBean;
 	RequestDispatcher dispatcher;
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		req.getRequestDispatcher("/login/login.jsp").forward(req, resp);
 	}
 
@@ -38,11 +39,10 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = req.getSession(true);
 				session.setAttribute("alunoLogado", alunoBean);
 
-				req.getRequestDispatcher("homeServlet").forward(req, resp);
+				req.getRequestDispatcher("login/login.jsp").forward(req, resp);
 			} else {
 				req.setAttribute("msgError", "Matrícula inválida!");
-				dispatcher = req.getRequestDispatcher("/");
-				dispatcher.forward(req, resp);
+				resp.sendRedirect("login.jsp");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

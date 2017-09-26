@@ -10,12 +10,15 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import br.ufs.dcomp.sigaaweb.model.AlunoBean;
 
 /**
  * Servlet Filter implementation class AutorizacaoFilter
  */
-@WebFilter("/home")
+@WebFilter(filterName = "AutorizacaoFilter", urlPatterns = { "/home/*" })
 public class AutorizacaoFilter implements Filter {
 
 	/**
@@ -30,14 +33,16 @@ public class AutorizacaoFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+
+		HttpServletResponse res = (HttpServletResponse) response;
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
 
-		if (session.getAttribute("alunoLogado") == null && !req.getRequestURI().endsWith("login/login")) {
+		AlunoBean alunoBean = (AlunoBean) session.getAttribute("alunoAlugado");
+		if (alunoBean == null) {
+			session.invalidate();
 			req.getRequestDispatcher("/login").forward(request, response);
-			System.out.println("nao passou");
 		} else {
-			System.out.println("ok");
 			chain.doFilter(request, response);
 		}
 	}
@@ -46,7 +51,7 @@ public class AutorizacaoFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
+		
 	}
 
 }
