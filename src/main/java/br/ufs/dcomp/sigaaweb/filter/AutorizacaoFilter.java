@@ -20,7 +20,7 @@ import br.ufs.dcomp.sigaaweb.model.AlunoBean;
  */
 @WebFilter(filterName = "AutorizacaoFilter", urlPatterns = { "/home/*" })
 public class AutorizacaoFilter implements Filter {
-
+	private final String URL_ROOT = "/sigaaweb";
 	/**
 	 * @see Filter#destroy()
 	 */
@@ -37,11 +37,12 @@ public class AutorizacaoFilter implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
-
+		
 		AlunoBean alunoBean = (AlunoBean) session.getAttribute("alunoAlugado");
 		if (alunoBean == null) {
 			session.invalidate();
-			req.getRequestDispatcher("/login").forward(request, response);
+			//req.getRequestDispatcher("/").forward(request, response);
+			res.sendRedirect(URL_ROOT + "/login");
 		} else {
 			chain.doFilter(request, response);
 		}
@@ -51,7 +52,7 @@ public class AutorizacaoFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		
+
 	}
 
 }

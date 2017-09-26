@@ -1,7 +1,6 @@
 package br.ufs.dcomp.sigaaweb.controll;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,6 +16,7 @@ import br.ufs.dcomp.sigaaweb.service.AlunoService;
 @WebServlet(name = "loginServlet", urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String URL_ROOT = "/sigaaweb";
 	AlunoService alunoService;
 	AlunoBean alunoBean;
 	RequestDispatcher dispatcher;
@@ -24,12 +24,12 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		req.getRequestDispatcher("/login/login.jsp").forward(req, resp);
+		req.getRequestDispatcher("/").forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try (PrintWriter out = resp.getWriter()) {
+		try {
 			alunoBean = new AlunoBean();
 			alunoService = new AlunoService();
 			long matricula = Long.parseLong(req.getParameter("usermatricula"));
@@ -39,10 +39,10 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = req.getSession(true);
 				session.setAttribute("alunoLogado", alunoBean);
 
-				req.getRequestDispatcher("login/login.jsp").forward(req, resp);
+				resp.sendRedirect("/home");
 			} else {
 				req.setAttribute("msgError", "Matrícula inválida!");
-				resp.sendRedirect("login.jsp");
+				resp.sendRedirect( URL_ROOT + "/login");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
