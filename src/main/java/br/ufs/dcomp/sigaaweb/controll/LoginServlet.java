@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("alunoLogado", alunoBean);
 
-				response.sendRedirect(URL_ROOT + "/home/home.jsp");
+				response.sendRedirect(URL_ROOT + "/home");
 
 			} else {
 				request.setAttribute("msgError", "matricula inválida!");
