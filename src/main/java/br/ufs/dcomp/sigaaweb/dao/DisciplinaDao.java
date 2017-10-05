@@ -27,8 +27,8 @@ public class DisciplinaDao extends GenericDao {
 				this.disciplinaBean = extractDisciplinaBeanFromResultSet(resultSet);
 			}
 			
-			statement.close();
-			this.closeConnection();
+//			statement.close();
+//			this.closeConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
