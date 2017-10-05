@@ -37,6 +37,26 @@ public class AlunoDao extends GenericDao {
 		return this.alunoBean;
 	}
 	
+	public List<AlunoBean> findByDisciplina(String codDisciplina) {
+		try {
+			Statement statement = this.getConnection().createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM alunos WHERE cod_disciplina='" + codDisciplina + "'");
+
+			while (resultSet.next()) {
+				this.alunoBean = extractAlunoBeanFromResultSet(resultSet);
+				this.alunoBeans.add(alunoBean);
+			}
+
+			statement.close();
+			this.closeConnection();
+
+		} catch (SQLException e) {
+			this.closeConnection();
+			e.printStackTrace();
+		}
+		return this.alunoBeans;
+	}
+	
 	public List<AlunoBean> findAll() {
 		try {
 			Statement statement = this.getConnection().createStatement();
