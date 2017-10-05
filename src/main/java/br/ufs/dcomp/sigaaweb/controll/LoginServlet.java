@@ -24,7 +24,6 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("POST");
 		long matricula = Long.parseLong(request.getParameter("usermatricula"));
 		alunoBean = new AlunoBean();
 		alunoService = new AlunoService();
@@ -35,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 			if (alunoBean != null) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("alunoLogado", alunoBean);
-
+				//session.setMaxInactiveInterval(2);
 				response.sendRedirect(URL_ROOT + "/home");
 
 			} else {

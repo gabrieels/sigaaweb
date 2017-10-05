@@ -33,12 +33,12 @@ public class AutorizacaoFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
 		
 		AlunoBean alunoBean = (AlunoBean) session.getAttribute("alunoLogado");
+		
 		if (alunoBean == null) {
 			session.invalidate();
 			//req.getRequestDispatcher("/").forward(request, response);
