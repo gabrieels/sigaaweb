@@ -24,4 +24,10 @@ public class AlunoDaoTest {
 		alunoBeans = alunoDao.findAll();
 		assertNotNull(alunoBeans);
 	}
+	
+	@Test
+	public final void testFindByDisciplina() {
+		alunoBeans = alunoDao.findByDisciplina("COMP0200");
+		assertNotNull(alunoBeans);
+	}
 }
