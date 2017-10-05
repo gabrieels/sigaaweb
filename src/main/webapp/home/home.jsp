@@ -46,7 +46,7 @@
 				<div class="table-responsive">
 					<table class="table table-bordered table-hover">
 						<caption class="text-center">Lista de displinas
-							ofertadas 2017.2</caption>
+							ofertadas para 2017.2</caption>
 						<thead>
 							<tr>
 								<th>Código da disciplina</th>
@@ -59,13 +59,13 @@
 						</thead>
 						<tbody>
 							<tr>
-								<c:forEach var="aluno" items="${alunos}">
+								<c:forEach var="semestre" items="${semestre}">
 									<tr>
-										<td><c:out value="${aluno.codDisciplina}" /></td>
-										<td><c:out value="${aluno.codDisciplina}" /></td>
-										<td><c:out value="${aluno.codTurma}" /></td>
-										<td><c:out value="${aluno.codTurma}" /></td>
-										<td><c:out value="${aluno.codTurma}" /></td>
+										<td><c:out value="${semestre.codDisciplina}" /></td>
+										<td><c:out value="${semestre.nomeDisciplina}" /></td>
+										<td><c:out value="${semestre.cargaHoraria}" /></td>
+										<td><c:out value="${semestre.codTurma}" /></td>
+										<td><c:out value="${semestre.horarioTurma}" /></td>
 										<td>
 											<div align="center" class="radio icheck-primary">
 												<input type="radio" id="0" name="primary" /> <label for="0"></label>

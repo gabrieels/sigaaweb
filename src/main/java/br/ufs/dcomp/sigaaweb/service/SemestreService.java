@@ -24,8 +24,6 @@ public class SemestreService {
 			semestre.setCodDisciplina(disciplinaBean.getCodDisciplina());
 			semestre.setNomeDisciplina(disciplinaBean.getNomeDisciplina());
 			
-			
-			
 			semestre.setCodTurma(turmaBean.getCodTurma());
 			
 			// set horario da turma (manha, tarde, noite)
@@ -36,8 +34,10 @@ public class SemestreService {
 			} else if (turmaBean.getTurnoNoite() != null) {
 				semestre.setHorarioTurma(turmaBean.getTurnoNoite());
 			}
+			
+			this.semestres.add(semestre);
 		}
 		
-		return null;
+		return this.semestres;
 	}
 }

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.ufs.dcomp.sigaaweb.model.AlunoBean;
-import br.ufs.dcomp.sigaaweb.service.AlunoService;
+import br.ufs.dcomp.sigaaweb.model.Semestre;
+import br.ufs.dcomp.sigaaweb.service.SemestreService;
 
 /**
  * Servlet implementation class HomeServlet
@@ -19,14 +19,15 @@ import br.ufs.dcomp.sigaaweb.service.AlunoService;
 @WebServlet(name = "homeServlet", urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	AlunoService alunoService = new AlunoService();
-	List<AlunoBean> alunoBeans;
+	List<Semestre> semestre;
+	SemestreService semestreService = new SemestreService();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.alunoBeans = this.alunoService.listarAlunos();
+		this.semestre = semestreService.buscarSemestre();
 		
 		HttpSession session = req.getSession();
-		session.setAttribute("alunos", this.alunoBeans);
+		session.setAttribute("semestre", this.semestre);
 		
 		resp.sendRedirect("home/home.jsp");
 	}
