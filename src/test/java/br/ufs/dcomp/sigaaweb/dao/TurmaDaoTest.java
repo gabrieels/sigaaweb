@@ -23,7 +23,7 @@ public class TurmaDaoTest {
 	@Test
 	public final void testFindAll() {
 		turmaBeanList = turmaDao.findAll();
-		
+		System.out.println(turmaBeanList.toString());
 		assertNotNull(turmaBeanList);
 	}
 
