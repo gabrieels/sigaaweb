@@ -23,7 +23,7 @@ public class SemestreService {
 			
 			semestre.setCodDisciplina(disciplinaBean.getCodDisciplina());
 			semestre.setNomeDisciplina(disciplinaBean.getNomeDisciplina());
-			
+			semestre.setCargaHoraria(disciplinaBean.getNuCreditos());
 			semestre.setCodTurma(turmaBean.getCodTurma());
 			
 			// set horario da turma (manha, tarde, noite)

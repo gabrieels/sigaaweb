@@ -27,8 +27,8 @@ public class TurmaDao extends GenericDao {
 				this.turmaBean = extractTurmaBeanFromResultSet(resultSet);
 			}
 			
-			statement.close();
-			this.closeConnection();
+//			statement.close();
+//			this.closeConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -46,7 +46,8 @@ public class TurmaDao extends GenericDao {
 				this.turmaBeans.add(turmaBean);
 			}
 		} catch (SQLException e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			this.closeConnection();
 		}
 
 		return this.turmaBeans;
