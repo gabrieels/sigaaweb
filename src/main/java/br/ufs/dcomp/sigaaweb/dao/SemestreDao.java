@@ -55,7 +55,7 @@ public class SemestreDao extends GenericDao {
 		if (resultSet.getString("turno_manha") != null) {
 			semestreBean.setHorarioTurma(resultSet.getString("turno_manha"));
 		} else if (resultSet.getString("turno_tarde") != null) {
-			semestreBean.setCargaHoraria(resultSet.getString("turno_tarde"));
+			semestreBean.setHorarioTurma(resultSet.getString("turno_tarde"));
 		} else if (resultSet.getString("turno_noite") != null) {
 			semestreBean.setHorarioTurma(resultSet.getString("turno_noite"));
 		}
