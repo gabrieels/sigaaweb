@@ -64,7 +64,7 @@
 								<c:set var="count" value="${count + 1}" scope="page"/>
 									<tr>
 										<td><c:out value="${semestre.codDisciplina}" /></td>
-										<td><c:out value="${semestre.codDisciplina}" /></td>
+										<td><c:out value="${semestre.nomeDisciplina}" /></td>
 										<td><c:out value="${semestre.cargaHoraria}" /></td>
 										<td><c:out value="${semestre.codTurma}" /></td>
 										<td><c:out value="${semestre.horarioTurma}" /></td>
@@ -75,8 +75,6 @@
 										</td>
 									</tr>
 								</c:forEach>
-
-								</td>
 							</tr>
 						</tbody>
 					</table>

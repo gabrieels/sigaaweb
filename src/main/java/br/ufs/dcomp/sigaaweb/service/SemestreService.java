@@ -6,16 +6,16 @@ import java.util.List;
 import br.ufs.dcomp.sigaaweb.dao.DisciplinaDao;
 import br.ufs.dcomp.sigaaweb.dao.TurmaDao;
 import br.ufs.dcomp.sigaaweb.model.DisciplinaBean;
-import br.ufs.dcomp.sigaaweb.model.Semestre;
+import br.ufs.dcomp.sigaaweb.model.SemestreBean;
 import br.ufs.dcomp.sigaaweb.model.TurmaBean;
 
 public class SemestreService {
 	TurmaDao turmaDao = new TurmaDao();
 	DisciplinaDao disciplinaDao = new DisciplinaDao();
-	List<Semestre> semestres = new ArrayList<>();
-	Semestre semestre = new Semestre();
+	List<SemestreBean> semestres = new ArrayList<>();
+	SemestreBean semestre = new SemestreBean();
 	
-	public List<Semestre>  buscarSemestre() {
+	public List<SemestreBean>  buscarSemestre() {
 		List<TurmaBean> turmaBeans = turmaDao.findAll();
 		
 		for (TurmaBean turmaBean : turmaBeans) {

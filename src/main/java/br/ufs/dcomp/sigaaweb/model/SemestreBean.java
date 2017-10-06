@@ -1,13 +1,16 @@
 package br.ufs.dcomp.sigaaweb.model;
 
-public class Semestre {
+import br.ufs.dcomp.sigaaweb.util.BaseBean;
+
+public class SemestreBean extends BaseBean {
+	private static final long serialVersionUID = 1L;
 	private String codDisciplina;
 	private String nomeDisciplina;
 	private String cargaHoraria;
 	private String codTurma;
 	private String horarioTurma;
 	
-	public Semestre() {
+	public SemestreBean() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,7 +21,7 @@ public class Semestre {
 	 * @param codTurma
 	 * @param horarioTurma
 	 */
-	public Semestre(String codDisciplina, String nomeDisciplina, String cargaHoraria, String codTurma,
+	public SemestreBean(String codDisciplina, String nomeDisciplina, String cargaHoraria, String codTurma,
 			String horarioTurma) {
 		super();
 		this.codDisciplina = codDisciplina;
