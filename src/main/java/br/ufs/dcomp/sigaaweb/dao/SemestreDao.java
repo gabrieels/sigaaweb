@@ -12,7 +12,7 @@ import br.ufs.dcomp.sigaaweb.util.GenericDao;
 public class SemestreDao extends GenericDao {
 	private SemestreBean semestreBean;
 	private List<SemestreBean> semestreBeans = new ArrayList<>();
-	
+
 	public SemestreDao() {
 		super();
 	}
@@ -20,7 +20,17 @@ public class SemestreDao extends GenericDao {
 	public List<SemestreBean> findAll() {
 		try {
 			Statement statement = this.getConnection().createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM turmas");
+			ResultSet resultSet = statement.executeQuery(
+					"SELECT "
+					+ "t1.cod_disciplina, "
+					+ "t2.nome_disciplina, "
+					+ "t2.nu_creditos, "
+					+ "t1.cod_turma, "
+					+ "t1.turno_manha, "
+					+ "t1.turno_tarde, "
+					+ "t1.turno_noite "
+					+ "FROM listaweb1.turmas t1 inner join listaweb1.disciplinas t2 "
+					+ "on t1.cod_disciplina = t2.cod_disciplina");
 
 			while (resultSet.next()) {
 				this.semestreBean = extractSemestreBeanFromResultSet(resultSet);
@@ -30,7 +40,7 @@ public class SemestreDao extends GenericDao {
 			e.printStackTrace();
 			this.closeConnection();
 		}
-		
+
 		return this.semestreBeans;
 	}
 
