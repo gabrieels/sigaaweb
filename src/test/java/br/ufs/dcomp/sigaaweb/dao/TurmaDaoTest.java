@@ -16,14 +16,12 @@ public class TurmaDaoTest {
 	@Test
 	public final void testFindbyCodTurma() {
 		turmaBean = turmaDao.findbyCodTurma("COMP0199", "T01");
-		
 		assertNotNull(turmaBean);
 	}
 
 	@Test
 	public final void testFindAll() {
 		turmaBeanList = turmaDao.findAll();
-		System.out.println(turmaBeanList.toString());
 		assertNotNull(turmaBeanList);
 	}
 
