@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 import br.ufs.dcomp.sigaaweb.model.AlunoBean;
 import br.ufs.dcomp.sigaaweb.service.AlunoService;
 
-@WebServlet("/login")
+@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String URL_ROOT = "/sigaaweb";
-	AlunoService alunoService;
-	AlunoBean alunoBean;
-	RequestDispatcher dispatcher;
+	private AlunoService alunoService;
+	private  AlunoBean alunoBean;
+
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
