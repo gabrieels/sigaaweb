@@ -8,12 +8,12 @@ import br.ufs.dcomp.sigaaweb.model.AlunoBean;
 import br.ufs.dcomp.sigaaweb.model.TurmaBean;
 
 public class AlunoService {
-	AlunoDao alunoDao = new AlunoDao();
-	TurmaDao turmaDao = new TurmaDao();
-	AlunoBean alunoBean;
-	TurmaBean turmaBean;
-	List<AlunoBean> alunoBeans;
-	List<TurmaBean> turmaBeans;
+	private AlunoDao alunoDao = new AlunoDao();
+	private TurmaDao turmaDao = new TurmaDao();
+	private AlunoBean alunoBean;
+	private TurmaBean turmaBean;
+	private List<AlunoBean> alunoBeans;
+	private List<TurmaBean> turmaBeans;
 
 	public AlunoBean autenticar(long matricula) {
 		alunoBean = alunoDao.findByMatricula(matricula);
@@ -32,5 +32,9 @@ public class AlunoService {
 	
 	public List<AlunoBean> buscarAlunosDisciplina(String codDisciplina) {
 		return this.alunoDao.findByDisciplina(codDisciplina);
+	}
+
+	public List<AlunoBean> buscarAlunosByDisciplinaByTurma(String codDisciplina, String codTurma) {
+		return this.alunoDao.findByDisciplinaTurma(codDisciplina, codTurma);
 	}
 }
