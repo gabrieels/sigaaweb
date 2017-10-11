@@ -1,8 +1,9 @@
 package br.ufs.dcomp.sigaaweb.controll;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
+import br.ufs.dcomp.sigaaweb.model.AlunoBean;
+import br.ufs.dcomp.sigaaweb.model.SemestreBean;
+import br.ufs.dcomp.sigaaweb.service.AlunoService;
+import br.ufs.dcomp.sigaaweb.service.SemestreService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import br.ufs.dcomp.sigaaweb.model.AlunoBean;
-import br.ufs.dcomp.sigaaweb.model.SemestreBean;
-import br.ufs.dcomp.sigaaweb.service.AlunoService;
-import br.ufs.dcomp.sigaaweb.service.SemestreService;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Servlet implementation class HomeServlet
@@ -22,25 +21,23 @@ import br.ufs.dcomp.sigaaweb.service.SemestreService;
 @WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private List<SemestreBean> semestre;
     private SemestreService semestreService = new SemestreService();
     private AlunoService alunoService = new AlunoService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.semestre = semestreService.buscarSemestre();
+        List<SemestreBean> semestre = semestreService.buscarSemestre();
 
         HttpSession session = req.getSession();
-        session.setAttribute("semestre", this.semestre);
+        session.setAttribute("semestre", semestre);
 
         resp.sendRedirect("home/home.jsp");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = null;
+
         try {
-            out = resp.getWriter();
             String[] data = req.getParameter("primary").split(";");
 
             AlunoBean alunoBean = (AlunoBean) req.getSession().getAttribute("alunoLogado");

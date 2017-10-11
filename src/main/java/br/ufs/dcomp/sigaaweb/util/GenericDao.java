@@ -16,9 +16,11 @@ public abstract class GenericDao {
 	
 	public void closeConnection() {
 		try {
-			this.connection.close();
+			if (this.connection != null) {
+				this.connection.close();
+			}
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Erro ao fechar conexao:" + e.getMessage());
 		}
 	}
 }

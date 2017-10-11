@@ -12,6 +12,7 @@ public class ConnectionFactory {
 			Class.forName(JDBC_DRIVER);
 			return DriverManager.getConnection(DATABASE_URL, "freire", "freire");
 		} catch (SQLException | ClassNotFoundException sqlException) {
+			System.out.println("###### Erro na conexao!! ######");
 			throw new RuntimeException(sqlException);
 		}
 	}

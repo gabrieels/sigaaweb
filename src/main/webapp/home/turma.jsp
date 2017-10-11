@@ -12,7 +12,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet prefetch'
 	href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="home/css/style.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
@@ -24,6 +24,13 @@
 </script>
 </head>
 <body>
+	<% String[] info = request.getParameterValues("primary"); %>
+	<c:forEach var="elemet" items="${info}" varStatus="status">
+
+		<c:out value="${elemet}" />
+		<c:out value="${elemet}" />
+
+	</c:forEach>
 	<!-- Fixed navbar -->
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
@@ -35,12 +42,12 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="../login/login.jsp">SIGAAWEB</a>
+				<a class="navbar-brand" href="/">SIGAAWEB</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Login</a></li>
-					<li><a href="#">Home</a></li>
+					<li class="active"><a href="../login/login.jsp">Login</a></li>
+					<li><a href="../home/home.jsp">Home</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
