@@ -11,7 +11,7 @@ import br.ufs.dcomp.sigaaweb.util.GenericDao;
 
 public class AlunoDao extends GenericDao {
 	private AlunoBean alunoBean = null;
-	List<AlunoBean> alunoBeans = new ArrayList<>();
+	private List<AlunoBean> alunoBeans = new ArrayList<>();
 	
 	public AlunoDao() {
 		super();
@@ -100,7 +100,7 @@ public class AlunoDao extends GenericDao {
 	private AlunoBean extractAlunoBeanFromResultSet(ResultSet resultSet) throws SQLException {
 		AlunoBean alunoBean = new AlunoBean();
 
-		alunoBean.setCodCurso(resultSet.getString("cod_matricula"));
+		alunoBean.setCodMatricula(resultSet.getLong("cod_matricula"));
 		alunoBean.setNomeAluno(resultSet.getString("nome_aluno"));
 		alunoBean.setCodDisciplina(resultSet.getString("cod_disciplina"));
 		alunoBean.setCodTurma(resultSet.getString("cod_turma"));
