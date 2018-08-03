@@ -27,7 +27,6 @@ public class TurmaBean extends BaseBean {
 	}
 
 	public TurmaBean() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getCodDisciplina() {

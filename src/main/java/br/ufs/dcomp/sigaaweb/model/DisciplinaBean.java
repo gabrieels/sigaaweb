@@ -9,7 +9,6 @@ public class DisciplinaBean extends BaseBean {
 	private String nuCreditos;
 	
 	public DisciplinaBean() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**

@@ -11,7 +11,6 @@ public class SemestreBean extends BaseBean {
 	private String horarioTurma;
 	
 	public SemestreBean() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

@@ -2,7 +2,6 @@ package br.ufs.dcomp.sigaaweb.controll;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +19,6 @@ public class LoginServlet extends HttpServlet {
 	private AlunoService alunoService;
 	private  AlunoBean alunoBean;
 
-
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("alunoLogado", alunoBean);
 				//session.setMaxInactiveInterval(2);
+				
 				response.sendRedirect(URL_ROOT + "/home");
 
 			} else {

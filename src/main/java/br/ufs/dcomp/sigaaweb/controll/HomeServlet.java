@@ -1,9 +1,7 @@
 package br.ufs.dcomp.sigaaweb.controll;
 
-import br.ufs.dcomp.sigaaweb.model.AlunoBean;
-import br.ufs.dcomp.sigaaweb.model.SemestreBean;
-import br.ufs.dcomp.sigaaweb.service.AlunoService;
-import br.ufs.dcomp.sigaaweb.service.SemestreService;
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
+import br.ufs.dcomp.sigaaweb.model.AlunoBean;
+import br.ufs.dcomp.sigaaweb.model.SemestreBean;
+import br.ufs.dcomp.sigaaweb.service.AlunoService;
+import br.ufs.dcomp.sigaaweb.service.SemestreService;
 
 /**
  * Servlet implementation class HomeServlet
@@ -21,12 +21,13 @@ import java.util.List;
 @WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private SemestreService semestreService = new SemestreService();
+   // private SemestreService semestreService = new SemestreService();
     private AlunoService alunoService = new AlunoService();
+    private List<SemestreBean> semestre = null;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<SemestreBean> semestre = semestreService.buscarSemestre();
+        semestre =  new SemestreService().buscarSemestre();
 
         HttpSession session = req.getSession();
         session.setAttribute("semestre", semestre);

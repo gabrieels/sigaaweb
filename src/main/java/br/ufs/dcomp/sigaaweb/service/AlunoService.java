@@ -3,9 +3,7 @@ package br.ufs.dcomp.sigaaweb.service;
 import java.util.List;
 
 import br.ufs.dcomp.sigaaweb.dao.AlunoDao;
-import br.ufs.dcomp.sigaaweb.dao.TurmaDao;
 import br.ufs.dcomp.sigaaweb.model.AlunoBean;
-import br.ufs.dcomp.sigaaweb.model.TurmaBean;
 
 public class AlunoService {
     private AlunoDao alunoDao = new AlunoDao();
@@ -32,6 +30,7 @@ public class AlunoService {
     }
 
     public List<AlunoBean> buscarAlunosByDisciplinaByTurma(String codDisciplina, String codTurma) {
-        return this.alunoDao.findByDisciplinaTurma(codDisciplina, codTurma);
+        //return this.alunoDao.findByDisciplinaTurma(codDisciplina, codTurma);
+        return null;
     }
 }

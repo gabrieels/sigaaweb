@@ -75,8 +75,9 @@ public class AlunoDao extends GenericDao {
 	public List<AlunoBean> findByDisciplinaTurma(String codDisciplina, String codTurma) {
 		try {
 			Statement statement = this.getConnection().createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM alunos WHERE cod_disciplina='" + codDisciplina + "' AND cod_turma='" + codTurma + "'");
-			
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM alunos WHERE "
+					+ "cod_disciplina='" + codDisciplina + "' AND cod_turma='" + codTurma + "'");
+
 			while (resultSet.next()) {
 				this.alunoBean = extractAlunoBeanFromResultSet(resultSet);
 				this.alunoBeans.add(alunoBean);
