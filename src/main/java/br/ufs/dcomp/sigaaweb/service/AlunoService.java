@@ -25,9 +25,9 @@ public class AlunoService {
         return this.alunoDao.findAll();
     }
 
-    public List<AlunoBean> buscarAlunosDisciplina(String codDisciplina) {
-        return this.alunoDao.findByDisciplina(codDisciplina);
-    }
+//    public List<AlunoBean> buscarAlunosDisciplina(String codDisciplina) {
+//        return this.alunoDao.findByDisciplina(codDisciplina);
+//    }
 
     public List<AlunoBean> buscarAlunosByDisciplinaByTurma(String codDisciplina, String codTurma) {
         //return this.alunoDao.findByDisciplinaTurma(codDisciplina, codTurma);

@@ -22,6 +22,7 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		long matricula = Long.parseLong(request.getParameter("usermatricula"));
 		alunoBean = new AlunoBean();
 		alunoService = new AlunoService();
@@ -37,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect(URL_ROOT + "/home");
 
 			} else {
-				request.setAttribute("msgError", "matricula inválida!");
+				request.setAttribute("msgError", "Matrícula Inválida!");
 				request.getRequestDispatcher("login/login.jsp").forward(request, response);
 			}
 		} catch (IOException e) {

@@ -14,8 +14,7 @@
 			<center><strong style="color:red">${msgError}</strong> </center>
 		</c:if>
 		<form method="post" action="login">
-			<input type="number" name="usermatricula" placeholder="Matrícula"
-				required="required" />
+			<input name="usermatricula" placeholder="Matrícula" required="required" />
 			<button type="submit" class="btn btn-primary btn-block btn-large">Entrar</button>
 		</form>
 	</div>

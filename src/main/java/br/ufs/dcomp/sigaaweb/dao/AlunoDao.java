@@ -97,8 +97,6 @@ public class AlunoDao extends GenericDao {
 
 		alunoBean.setCodMatricula(resultSet.getLong("cod_matricula"));
 		alunoBean.setNomeAluno(resultSet.getString("nome_aluno"));
-		alunoBean.setCodDisciplina(resultSet.getString("cod_disciplina"));
-		alunoBean.setCodTurma(resultSet.getString("cod_turma"));
 		alunoBean.setCodCurso(resultSet.getString("cod_curso"));
 
 		return alunoBean;

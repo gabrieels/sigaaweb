@@ -7,8 +7,6 @@ public class AlunoBean extends BaseBean {
 	private static final long serialVersionUID = 1L;
 	private long codMatricula;
 	private String nomeAluno;
-	private String codDisciplina;
-	private String codTurma;
 	private String codCurso;
 	
 	public AlunoBean() {
@@ -21,11 +19,9 @@ public class AlunoBean extends BaseBean {
 	 * @param codTurma
 	 * @param codCurso
 	 */
-	public AlunoBean(long codMatricula, String nomeAluno, String codDisciplina, String codTurma, String codCurso) {
+	public AlunoBean(long codMatricula, String nomeAluno, String codCurso) {
 		this.codMatricula = codMatricula;
 		this.nomeAluno = nomeAluno;
-		this.codDisciplina = codDisciplina;
-		this.codTurma = codTurma;
 		this.codCurso = codCurso;
 	}
 
@@ -45,22 +41,6 @@ public class AlunoBean extends BaseBean {
 		this.nomeAluno = nomeAluno;
 	}
 
-	public String getCodDisciplina() {
-		return codDisciplina;
-	}
-
-	public void setCodDisciplina(String codDisciplina) {
-		this.codDisciplina = codDisciplina;
-	}
-
-	public String getCodTurma() {
-		return codTurma;
-	}
-
-	public void setCodTurma(String codTurma) {
-		this.codTurma = codTurma;
-	}
-
 	public String getCodCurso() {
 		return codCurso;
 	}
@@ -71,7 +51,6 @@ public class AlunoBean extends BaseBean {
 
 	@Override
 	public String toString() {
-		return "AlunoBean [codMatricula=" + codMatricula + ", nomeAluno=" + nomeAluno + ", codDisciplina="
-				+ codDisciplina + ", codTurma=" + codTurma + ", codCurso=" + codCurso + "]\n";
+		return "AlunoBean [codMatricula=" + codMatricula + ", nomeAluno=" + nomeAluno + ", codCurso=" + codCurso + "]\n";
 	}
 }

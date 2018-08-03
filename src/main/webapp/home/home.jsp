@@ -78,7 +78,7 @@
 					<form id="registerForm" method="post" action="../home">
 						<table class="table table-bordered table-hover">
 							<caption class="text-center">Lista de displinas
-								ofertadas 2017.2</caption>
+								ofertadas 2018.2</caption>
 							<thead>
 								<tr>
 									<th>Código da disciplina</th>
@@ -98,12 +98,12 @@
 										<tr>
 											<td><c:out value="${semestre.codDisciplina}" /></td>
 											<td><c:out value="${semestre.nomeDisciplina}" /></td>
-											<td><c:out value="${semestre.cargaHoraria}" /></td>
+											<td><c:out value="${semestre.cargaHoraria}H" /></td>
 											<td><c:out value="${semestre.codTurma}" /></td>
 											<td><c:out value="${semestre.horarioTurma}" /></td>
 											<td>
-												<div align="center" class="radio icheck-primary">
-													<input type="radio" id="${count}" name="primary"
+												<div align="center" class="checkbox icheck-primary">
+													<input type="checkbox" id="${count}" name="primary"
 														value="${semestre.codDisciplina};${semestre.codTurma}" />
 													<label for="${count}"></label>
 												</div>
@@ -114,7 +114,7 @@
 							</tbody>
 						</table>
 						<button id="btnSubmit" class="btn btn-primary" data-toggle="modal"
-							data-target=".bs-example-modal-lg">Adicionar Turma</button>
+							data-target=".bs-example-modal-lg">Próxima Etapa</button>
 					</form>
 				</div>
 				<!--end of .table-responsive-->
